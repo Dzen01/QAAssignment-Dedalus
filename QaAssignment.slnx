@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/QaFramework.Core/QaFramework.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Tests.Api/Tests.Api.csproj" />
+    <Project Path="tests/Tests.Mobile/Tests.Mobile.csproj" />
+    <Project Path="tests/Tests.Web/Tests.Web.csproj" />
+  </Folder>
+</Solution>
