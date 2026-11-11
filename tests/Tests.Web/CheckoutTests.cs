@@ -13,8 +13,12 @@ public class CheckoutTests : WebTestBase
         var inventory = await LogInAsync();
         await inventory.AddToCartAsync(Products.Backpack);
         await inventory.AddToCartAsync(Products.BikeLight);
+        await Expect(inventory.CartBadge).ToHaveTextAsync("2");
         await inventory.OpenCartAsync();
-        await new CartPage(Page).CheckoutAsync();
+
+        var cart = new CartPage(Page);
+        await Expect(cart.ItemNames).ToHaveTextAsync(new[] { Products.Backpack, Products.BikeLight });
+        await cart.CheckoutAsync();
 
         var checkout = new CheckoutPage(Page);
         await checkout.SubmitInfoAsync(CheckoutInfo.Valid);
